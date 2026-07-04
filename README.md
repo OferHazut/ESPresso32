@@ -83,10 +83,10 @@ Power to the machine itself is switched by a Switcher smart plug, so it can be t
 
 ### Insulation & thermal materials
 
-- [Noise insulation foam 50cm × 200cm × 5mm](https://he.aliexpress.com/item/1005007864118122.html) — **aluminum foil backing caused electrical shorts; had to peel it off. Look for an alternative product without foil.**
-- [Red silicone closed-cell heat insulation for boiler, 250mm × 250mm × 3mm, up to 250°C](https://he.aliexpress.com/item/1005007139747645.html) — **rated for boiler temperatures; 3mm thickness (could try 2mm to save space)**
-- [Silicone heat insulation mat, 200mm × 250mm × 5mm](https://he.aliexpress.com/item/1005009325127764.html)
-- [Vinyl film, 50cm × 152cm](https://he.aliexpress.com/item/1005010632259965.html) — **size is more than enough**
+- [Noise insulation foam 50cm × 200cm × 5mm](https://he.aliexpress.com/item/1005007864118122.html) — **aluminum foil backing caused electrical shorts; had to peel it off. Look for an alternative product without foil.** Size was more than enough
+- [Red silicone closed-cell heat insulation for boiler, 250mm × 250mm × 3mm, up to 250°C](https://he.aliexpress.com/item/1005007139747645.html) — **rated for boiler temperatures; 3mm thickness (could try 2mm for easier fitting in some areas)**
+- [Silicone heat insulation mat, 200mm × 250mm × 5mm](https://he.aliexpress.com/item/1005009325127764.html)  **rated for boiler temperatures**
+- [Vinyl film, 50cm × 152cm](https://he.aliexpress.com/item/1005010632259965.html) — to wrap the machine from the outside, was quite easy to apply, **size is more than enough**
 
 ### Electrical components & wiring
 
@@ -106,7 +106,7 @@ Power to the machine itself is switched by a Switcher smart plug, so it can be t
 ### SSR & boiler
 
 - [SSR 40DA solid-state relay](https://he.aliexpress.com/item/1005005943909513.html) — drives the heating element
-- [Red O-rings for Rancilio boiler, OD 82mm × 3.5mm, 5pcs](https://he.aliexpress.com/item/1005005409190788.html) — **these fit properly; original o-rings don't**
+- Optional: [Red O-rings for Rancilio boiler, OD 82mm × 3.5mm, 5pcs](https://he.aliexpress.com/item/1005005409190788.html) — **these fit properly in case you open the boiler for cleaning and need to replace the original one** 
 
 ## Development
 
