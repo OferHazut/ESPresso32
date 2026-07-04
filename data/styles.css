@@ -1,0 +1,238 @@
+:root {
+  --bg: #f7f4ea;
+  --panel: #fff8e8;
+  --ink: #1f2937;
+  --muted: #4b5563;
+  --line: #d9caa1;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 0 0, #fff2cc 0%, transparent 35%),
+    radial-gradient(circle at 100% 100%, #e0f2fe 0%, transparent 42%),
+    var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+main {
+  width: min(920px, 96vw);
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+  padding: 18px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+}
+
+.status {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.sensor-section {
+  margin-bottom: 16px;
+}
+
+.sensor-section h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+}
+
+.chart-wrap {
+  height: clamp(200px, 34vh, 340px);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fffdf7;
+  padding: 8px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.controls input[type="range"] {
+  flex: 1;
+  max-width: 220px;
+  accent-color: #d97706;
+}
+
+.temp-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.axis-controls,
+.ssr-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.axis-controls input,
+.ssr-controls input {
+  width: 58px;
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fffdf7;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.download-btn {
+  padding: 3px 12px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fffdf7;
+  color: var(--ink);
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background: var(--line);
+}
+
+.ssr-dot {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ssr-on  { background: #16a34a; box-shadow: 0 0 6px #16a34a88; }
+.ssr-off { background: #9ca3af; }
+
+.ssr-label {
+  font-weight: 600;
+  min-width: 44px;
+}
+
+.pid-output {
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-width: 54px;
+}
+
+.pid-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  width: 100%;
+}
+
+.pid-controls input {
+  width: 58px;
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fffdf7;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.pid-controls select {
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fffdf7;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.pid-controls button {
+  padding: 3px 12px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #d97706;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.pid-controls button:hover {
+  background: #b45309;
+}
+
+.pid-controls button.btn-secondary {
+  background: #6b7280;
+}
+
+.pid-controls button.btn-secondary:hover {
+  background: #4b5563;
+}
+
+.pid-status {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 6px;
+  width: 100%;
+}
+
+.pid-status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+}
+
+.pid-status-badge.pid-on {
+  background: #86efac;
+  color: #15803d;
+}
+
+.pid-status-badge.pid-off {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.pid-status-badge.integrator-on {
+  background: #86efac;
+  color: #15803d;
+}
+
+.pid-status-badge.integrator-off {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.meta {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

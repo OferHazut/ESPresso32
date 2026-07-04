@@ -1,0 +1,37 @@
+wifi:
+  ssid: "YOUR_WIFI_SSID"
+  password: "YOUR_WIFI_PASSWORD"
+  hostname: "esp-temp-monitor"
+
+server:
+  port: 80
+  enabled: true
+
+temperature:
+  clk_pin: 11
+  cs_pin: 12
+  do_pin: 13
+  sample_interval_ms: 100
+  # 5 × 100ms = 500ms history — suppresses single-LSB (0.25°C) ADC dithering
+  # without adding excessive lag.
+  median_window: 5
+
+pressure:
+  adc_pin: 4
+  sample_interval_ms: 50
+  median_window: 10
+  max_bar: 16.0
+  divider_ratio: 0.66
+
+ssr:
+  pin: 10
+  setpoint_c: 105.0
+
+pid:
+  kp: 4.0
+  ki: 0.02
+  kd: 50.0
+  window_ms: 3000
+  derivative_k: 25
+  derivative_source: "filtered"
+  dc_cap_percent: 50.0

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Espresso32 Monitor</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Espresso32 Live Monitor</h1>
+
+    <div class="controls">
+      <label for="historyLen">Window: <strong id="historyLenVal">30</strong>s</label>
+      <input type="range" id="historyLen" min="1" max="600" value="30" />
+    </div>
+
+    <section class="sensor-section">
+      <h2>Temperature</h2>
+      <div class="temp-controls">
+        <div class="axis-controls">
+          <label>Y min&nbsp;<input type="number" id="yMin" value="-10" step="5" /></label>
+          <label>Y max&nbsp;<input type="number" id="yMax" value="200" step="5" /></label>
+        </div>
+        <a id="downloadCsv" class="download-btn" href="/api/temperature/history.csv" download="temperature_history.csv">Download CSV</a>
+        <div class="ssr-controls">
+          <label>Setpoint&nbsp;<input type="number" id="ssrSetpoint" value="80" min="0" max="160" step="0.5" />&nbsp;&deg;C</label>
+          <span id="ssrIndicator" class="ssr-dot ssr-off"></span>
+          <span id="ssrLabel" class="ssr-label">SSR off</span>
+          <span id="pidOutput" class="pid-output">PID 0%</span>
+        </div>
+        <div class="pid-controls">
+          <label>Kp&nbsp;<input type="number" id="pidKp" value="4.0" min="0" max="100" step="0.1" /></label>
+          <label>Ki&nbsp;<input type="number" id="pidKi" value="0.02" min="0" max="10"  step="0.01" /></label>
+          <label>Kd&nbsp;<input type="number" id="pidKd" value="50.0" min="0" max="1000" step="0.1" /></label>
+          <label>Window&nbsp;<input type="number" id="pidWindow" value="3000" min="250" max="10000" step="250" />&nbsp;ms</label>
+          <label>Derivative N&nbsp;<input type="number" id="pidDerivativeK" value="25" min="2" max="50" step="1" /></label>
+          <label>D source&nbsp;
+            <select id="pidDerivativeSource">
+              <option value="raw">Raw</option>
+              <option value="filtered" selected>Filtered</option>
+            </select>
+          </label>
+          <label title="Spacing between samples fed to the derivative filter. With Derivative N samples this many ms apart, the derivative window spans N * interval.">D interval&nbsp;<input type="number" id="pidDerivativeInterval" value="1000" min="0" max="10000" step="100" />&nbsp;ms</label>
+          <label>DC Cap&nbsp;<input type="number" id="pidDcCap" value="50" min="1" max="100" step="1" />&nbsp;%</label>
+          <label title="When the temperature slope stays below this value (deg C/sec, negative) for at least the hold time below, the DC cap is bypassed (full output allowed) to recover quickly from a fast drop.">Cap-off slope&nbsp;<input type="number" id="pidDcCapDisableSlope" value="-1.0" min="-20" max="0" step="0.1" />&nbsp;°C/s</label>
+          <label>Cap-off hold&nbsp;<input type="number" id="pidDcCapDisableHold" value="3000" min="0" max="60000" step="500" />&nbsp;ms</label>
+          <button id="pidApply">Apply</button>
+          <button id="pidReset" class="btn-secondary" title="Clear accumulated integral/derivative memory without changing tunings">Reset memory</button>
+          <div class="pid-status">
+            <span id="pidStatusLabel" class="pid-status-badge pid-off">PID: OFF</span>
+            <span id="integratorStatusLabel" class="pid-status-badge integrator-off">Integrator: OFF</span>
+            <span id="dcCapBypassLabel" class="pid-status-badge integrator-off">Cap: ACTIVE</span>
+            <span id="slopeReadout" class="pid-output">Slope: --°C/s</span>
+          </div>
+        </div>
+        <div class="pid-controls">
+          <label>Sample interval&nbsp;<input type="number" id="sensorSampleInterval" value="100" min="20" max="1000" step="10" />&nbsp;ms</label>
+          <label>Median window&nbsp;<input type="number" id="sensorMedianWindow" value="5" min="1" max="10" step="1" />&nbsp;samples</label>
+          <button id="sensorApply">Apply</button>
+          <span id="sensorLatencyReadout" class="pid-output">≈ 500ms latency</span>
+        </div>
+      </div>
+      <p id="tempStatus" class="status">Waiting for telemetry...</p>
+      <div class="chart-wrap">
+        <canvas id="tempChart"></canvas>
+      </div>
+    </section>
+
+    <section class="sensor-section">
+      <h2>PID Diagnostics</h2>
+      <p id="pidDiagStatus" class="status">Waiting for telemetry...</p>
+      <div class="chart-wrap">
+        <canvas id="pidDiagChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Pressure sensing/monitoring disabled for now — re-enable by uncommenting
+         this section and setting PRESSURE_ENABLED = true in app.js
+    <section class="sensor-section">
+      <h2>Pressure</h2>
+      <p id="pressureStatus" class="status">Waiting for telemetry...</p>
+      <div class="chart-wrap">
+        <canvas id="pressureChart"></canvas>
+      </div>
+    </section>
+    -->
+
+
+    <p id="meta" class="meta">Waiting for telemetry…</p>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
