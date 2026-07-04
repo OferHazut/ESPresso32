@@ -79,6 +79,35 @@ Power to the machine itself is switched by a Switcher smart plug, so it can be t
   <img src="images/switcher.jpeg" alt="Switcher smart plug used to power the machine on remotely" width="300">
 </p>
 
+## Bill of Materials
+
+### Insulation & thermal materials
+
+- [Noise insulation foam 50cm × 200cm × 5mm](https://he.aliexpress.com/item/1005007864118122.html) — **aluminum foil backing caused electrical shorts; had to peel it off. Look for an alternative product without foil.**
+- [Red silicone closed-cell heat insulation for boiler, 250mm × 250mm × 3mm, up to 250°C](https://he.aliexpress.com/item/1005007139747645.html) — **rated for boiler temperatures; 3mm thickness (could try 2mm to save space)**
+- [Silicone heat insulation mat, 200mm × 250mm × 5mm](https://he.aliexpress.com/item/1005009325127764.html)
+- [Vinyl film, 50cm × 152cm](https://he.aliexpress.com/item/1005010632259965.html) — **size is more than enough**
+
+### Electrical components & wiring
+
+- [FDD 1.25-250 connectors, 10 pairs](https://he.aliexpress.com/item/1005008784415035.html) — plus electrical cables and 5V charger for the main switch and board power
+- [Jumper wires, 10cm](https://he.aliexpress.com/item/4000203371860.html)
+- [Capacitors](https://he.aliexpress.com/item/1005006418528392.html) — placed one on the temperature probe for noise filtering
+
+### Sensors
+
+- [M3 6×6.8mm bolt hex FTARB03 K-type thermocouple probe](https://he.aliexpress.com/item/1005004948080451.html) — fits the boiler opening
+- [MAX31855 thermocouple amplifier board](https://he.aliexpress.com/item/1005006635665601.html) — **note: I also bought a pre-assembled version with probe before finding the individual M3 probe that fits the boiler**
+
+### Main controller
+
+- [ESP32-S3 N16R8 board](https://he.aliexpress.com/item/1005008201847680.html) — built for 4d_systems_esp32s3_gen4_r8n16
+
+### SSR & boiler
+
+- [SSR 40DA solid-state relay](https://he.aliexpress.com/item/1005005943909513.html) — drives the heating element
+- [Red O-rings for Rancilio boiler, OD 82mm × 3.5mm, 5pcs](https://he.aliexpress.com/item/1005005409190788.html) — **these fit properly; original o-rings don't**
+
 ## Development
 
 <p align="center">
