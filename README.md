@@ -2,6 +2,17 @@
 
 Firmware for an ESP32-S3-based PID temperature controller for an espresso machine boiler, with a built-in web dashboard for live monitoring and tuning.
 
+<p align="center">
+  <img src="images/final.jpeg" alt="Espresso machine with Espresso32 controller installed" width="500">
+</p>
+
+<p align="center">
+  <img src="images/InitialWarmup.jpeg" alt="Dashboard: initial warmup, PID off" width="260">
+  <img src="images/NoIntegratorStage.jpeg" alt="Dashboard: approaching setpoint, integrator still off" width="260">
+  <img src="images/PID.jpeg" alt="Dashboard: full PID control holding setpoint" width="260">
+</p>
+<p align="center"><em>Warmup stages on the live dashboard: initial heating (PID off), approach to setpoint (integrator off), and full PID control once at temperature.</em></p>
+
 ## What it does
 
 - Reads boiler temperature from a MAX31855 thermocouple amplifier.
@@ -61,3 +72,17 @@ Built for a `4d_systems_esp32s3_gen4_r8n16` board. Default pin mapping (see `inc
 | SSR control | 10 |
 | Ready LED | 2 |
 | Pressure ADC (optional, disabled by default) | 4 |
+
+Power to the machine itself is switched by a Switcher smart plug, so it can be turned on remotely from a phone before getting home — the controller then takes over boiler regulation once it's powered up.
+
+<p align="center">
+  <img src="images/switcher.jpeg" alt="Switcher smart plug used to power the machine on remotely" width="300">
+</p>
+
+## Development
+
+<p align="center">
+  <img src="images/boiler_insulation.jpeg" alt="Boiler with thermocouple and SSR wiring installed, insulation being fitted" width="400">
+  <img src="images/first_temperature_demo.jpeg" alt="Bench setup during early development, first live temperature chart" width="400">
+</p>
+<p align="center"><em>Fitting the thermocouple, SSR wiring, and boiler insulation; early bench testing with the first live temperature readout.</em></p>
